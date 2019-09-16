@@ -1,0 +1,16 @@
+package Aa2;
+
+import java.util.Scanner;
+
+public class Ett {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int tal = input.nextInt();
+		int summa = 0;
+		while (tal != 0) {
+			tal = input.nextInt();
+			summa += tal;
+		}
+		System.out.println(summa);
+	}
+}
