@@ -1,0 +1,88 @@
+package Aa2;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+
+public class Window_Button_javaFX {
+
+	public static class layout_test extends Application {
+
+		@Override
+		public void start(Stage primaryStage) throws Exception {
+
+			HBox main = new HBox();
+			Button exitButton = new Button("Exit");
+			main.getChildren().add(exitButton);
+
+			exitButton.setOnAction(event -> {
+				primaryStage.close();
+
+			});
+
+			Circle circle = new Circle();
+			circle.setRadius(40);
+			circle.setFill(Color.BLACK);
+			circle.setTranslateX(-200);
+			circle.setTranslateY(50);
+
+			Rectangle fyrkant = new Rectangle();
+			fyrkant.setHeight(80);
+			fyrkant.setWidth(80);
+			fyrkant.setFill(Color.BLUEVIOLET);
+			fyrkant.setTranslateX(-200);
+			fyrkant.setTranslateY(150);
+
+			Button Button2 = new Button("Add Circle");
+			main.getChildren().add(Button2);
+
+			Button2.setOnAction(event -> {
+				main.getChildren().add(circle);
+				main.getChildren().remove(Button2);
+
+			});
+
+			Button Button3 = new Button("Remove Circle");
+			main.getChildren().add(Button3);
+
+			Button3.setOnAction(event -> {
+				main.getChildren().remove(circle);
+				main.getChildren().add(Button2);
+			});
+
+			Button Button4 = new Button("Add Rectangle");
+			main.getChildren().add(Button4);
+
+			Button4.setOnAction(event -> {
+				main.getChildren().add(fyrkant);
+				main.getChildren().remove(Button4);
+
+			});
+
+			Button Button5 = new Button("Remove Rectangle");
+			main.getChildren().add(Button5);
+
+			Button5.setOnAction(event -> {
+				main.getChildren().remove(fyrkant);
+				main.getChildren().add(Button4);
+
+			});
+
+			Scene scene = new Scene(main, 500, 500);
+
+			primaryStage.setScene(scene);
+			primaryStage.show();
+
+		}
+
+		public static void main(String[] args) {
+			launch();
+
+		}
+	}
+}
